@@ -1,6 +1,7 @@
 import Reveal from "./Reveal";
+import Socials from "./Socials";
+import { address, mapsPlaceUrl, mapsReviewsUrl } from "@/data/site";
 
-const address = "Av. General Roçadas 171C, 1170-160 Lisboa, Portugal";
 const mapsQuery = encodeURIComponent(address);
 
 // TODO: update these once opening hours are confirmed.
@@ -43,7 +44,7 @@ export default function Visit() {
               <p className="font-medium text-olive-deep">Find us</p>
               <p className="text-muted">{address}</p>
               <a
-                href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery}`}
+                href={mapsPlaceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-1 inline-block text-sm text-olive-deep underline underline-offset-4 hover:text-olive"
@@ -74,6 +75,24 @@ export default function Visit() {
             <Row
               icon={
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+                  <path d="M12 3l2.4 5.4L20 9l-4 3.8L17.2 19 12 15.9 6.8 19 8 12.8 4 9l5.6-.6L12 3z" strokeLinejoin="round" />
+                </svg>
+              }
+            >
+              <p className="font-medium text-olive-deep">Loved it?</p>
+              <a
+                href={mapsReviewsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted underline underline-offset-4 hover:text-olive-deep"
+              >
+                Leave us a review on Google
+              </a>
+            </Row>
+
+            <Row
+              icon={
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
                   <rect x="3" y="3" width="18" height="18" rx="5" />
                   <circle cx="12" cy="12" r="4" />
                   <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
@@ -81,14 +100,8 @@ export default function Visit() {
               }
             >
               <p className="font-medium text-olive-deep">Say hello</p>
-              <a
-                href="https://www.instagram.com/chapter1cafeandbar/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted underline underline-offset-4 hover:text-olive-deep"
-              >
-                @chapter1cafeandbar
-              </a>
+              <p className="mt-1 text-muted">Follow the story as it unfolds.</p>
+              <Socials className="mt-3" size={20} />
             </Row>
           </Reveal>
 
@@ -97,7 +110,7 @@ export default function Visit() {
               <iframe
                 title="Chapter 1 location map"
                 src={`https://maps.google.com/maps?q=${mapsQuery}&z=16&output=embed`}
-                className="h-[420px] w-full"
+                className="h-full min-h-[460px] w-full"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

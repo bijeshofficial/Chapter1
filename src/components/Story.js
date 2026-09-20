@@ -5,7 +5,7 @@ import Leaf from "./Leaf";
 const notes = [
   {
     title: "Himalayan roots",
-    body: "Momos, laphing and stick aalu — honest bites from the mountains, made the way they should be.",
+    body: "Momo, laphing and stick aalu — honest bites from the mountains, made the way they should be.",
   },
   {
     title: "Lisbon mornings",
