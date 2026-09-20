@@ -21,7 +21,8 @@ export const mapsPlaceUrl =
 export const mapsReviewsUrl = `${mapsPlaceUrl}&entry=ttu`;
 
 // Featurable Google Reviews widget.
-// Create a free widget at https://featurable.com, then paste its ID here
-// (the UUID from the embed snippet, e.g. "a1b2c3d4-...").
-// Leave empty to show the Google review call-to-action instead.
-export const reviewsWidgetId = "";
+// Paste the widget's UUID here (from the embed snippet's
+// id="featurable-<uuid>"). Leave empty to always show the Google
+// review call-to-action instead. If the widget fails to render for any
+// reason, the section falls back to that CTA automatically.
+export const reviewsWidgetId = "e8475b4c-023d-4558-b061-f60864ee1599";
