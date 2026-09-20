@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Reveal from "./Reveal";
 import Leaf from "./Leaf";
 
@@ -37,7 +38,44 @@ export default function Story() {
         </Reveal>
       </div>
 
-      <div className="mx-auto mt-16 grid max-w-5xl gap-8 md:grid-cols-3">
+      {/* Founder feature */}
+      <div className="mx-auto mt-20 grid max-w-5xl items-center gap-10 md:grid-cols-2 md:gap-14">
+        <Reveal>
+          <figure className="relative mx-auto max-w-sm">
+            <div className="overflow-hidden rounded-2xl border border-line shadow-[0_20px_50px_rgba(47,51,39,0.12)]">
+              <Image
+                src="/founder.jpg"
+                alt="Founder of Chapter 1, menu in hand, under the Buddha-eyes lantern"
+                width={800}
+                height={1000}
+                sizes="(max-width: 768px) 90vw, 400px"
+                className="aspect-[4/5] w-full object-cover object-[center_72%]"
+              />
+            </div>
+            <span className="pointer-events-none absolute -bottom-3 -right-3 -z-10 h-24 w-24 rounded-2xl bg-cream-deep" />
+          </figure>
+        </Reveal>
+
+        <Reveal delay={120}>
+          <div className="text-center md:text-left">
+            <span className="eyebrow">From Nepal to Lisbon</span>
+            <blockquote className="mt-4 font-serif text-2xl leading-snug text-olive-deep sm:text-[1.7rem]">
+              &ldquo;Under the Buddha-eyes lantern, menu in hand, dreams in
+              heart — welcome to our first café.&rdquo;
+            </blockquote>
+            <p className="mt-5 text-lg leading-relaxed text-muted">
+              From dreaming in Nepal to building in Lisbon, Chapter 1 begins.
+              Started small, but dreaming it big — this is where our story opens,
+              one guest at a time.
+            </p>
+            <div className="mt-6 flex justify-center text-olive-soft md:justify-start">
+              <Leaf className="h-4 w-24" />
+            </div>
+          </div>
+        </Reveal>
+      </div>
+
+      <div className="mx-auto mt-20 grid max-w-5xl gap-8 md:grid-cols-3">
         {notes.map((n, i) => (
           <Reveal key={n.title} delay={i * 120}>
             <div className="h-full rounded-2xl border border-line bg-cream/60 p-8 text-center">
