@@ -4,6 +4,7 @@ import { useState } from "react";
 import { foodMenu, drinksMenu } from "@/data/menu";
 import Reveal from "./Reveal";
 import Leaf from "./Leaf";
+import Lightbox from "./Lightbox";
 
 function MenuGroup({ group }) {
   return (
@@ -33,7 +34,9 @@ function MenuGroup({ group }) {
 
 export default function Menu() {
   const [tab, setTab] = useState("food");
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const groups = tab === "food" ? foodMenu : drinksMenu;
+  const printedSrc = tab === "food" ? "/menu/menu-food.jpg" : "/menu/menu-drinks.jpg";
 
   return (
     <section id="menu" className="px-6 py-28">
@@ -77,16 +80,23 @@ export default function Menu() {
         <p className="mt-12 text-center text-sm text-muted">
           Prices in euros. Ask our team about the Cake of the Day and seasonal
           specials.{" "}
-          <a
-            href={tab === "food" ? "/menu/menu-food.jpg" : "/menu/menu-drinks.jpg"}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={() => setLightboxOpen(true)}
             className="text-olive-deep underline underline-offset-4 hover:text-olive"
           >
             View the printed {tab} menu
-          </a>
+          </button>
         </p>
       </div>
+
+      {lightboxOpen && (
+        <Lightbox
+          src={printedSrc}
+          alt={`Chapter 1 printed ${tab} menu`}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
     </section>
   );
 }
