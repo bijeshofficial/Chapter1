@@ -25,7 +25,6 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Things to update
 
 - **Opening hours** — placeholder values in `src/components/Visit.js` (search for `TODO`).
-- **Instagram** — link in `src/components/Visit.js` and `Footer` currently points to instagram.com; set the real handle.
 
 ## Location
 

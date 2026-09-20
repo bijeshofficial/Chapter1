@@ -82,12 +82,12 @@ export default function Visit() {
             >
               <p className="font-medium text-olive-deep">Say hello</p>
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/chapter1cafeandbar/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted underline underline-offset-4 hover:text-olive-deep"
               >
-                Follow us on Instagram
+                @chapter1cafeandbar
               </a>
             </Row>
           </Reveal>

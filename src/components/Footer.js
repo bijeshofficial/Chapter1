@@ -22,6 +22,19 @@ export default function Footer() {
           <a href="#menu" className="hover:text-olive-deep">Menu</a>
           <a href="#visit" className="hover:text-olive-deep">Visit</a>
         </div>
+        <a
+          href="https://www.instagram.com/chapter1cafeandbar/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chapter 1 on Instagram"
+          className="text-muted transition-colors hover:text-olive-deep"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+          </svg>
+        </a>
         <p className="mt-4 text-xs tracking-wide text-muted/80">
           © {new Date().getFullYear()} Chapter 1 Café &amp; Bar · Lisbon, Portugal
         </p>
