@@ -15,6 +15,36 @@ function loadFeaturable() {
   document.body.appendChild(s);
 }
 
+// Featurable renders inside an open shadow DOM, so page CSS can't reach it.
+// We inject a small style into that shadow root to swap its stark white
+// surfaces for the site's warm off-white. Best-effort: if Featurable's markup
+// ever changes, the widget simply keeps its own default styling.
+const THEME_STYLE_ID = "c1-reviews-theme";
+const THEME_CSS = `
+  .bg-white { background-color: #fbf9f3 !important; }
+  .border-gray-200 { border-color: #e3ddcd !important; }
+  /* Hide the widget's own title; the section already has a themed heading. */
+  .widget > .title { display: none !important; }
+  .widget { padding-top: 0 !important; }
+`;
+
+function themeShadow(container) {
+  try {
+    const hostEl = container.querySelector(".shadow-wrapper") || container;
+    const root = hostEl.shadowRoot;
+    if (!root) return false;
+    if (!root.getElementById(THEME_STYLE_ID)) {
+      const style = document.createElement("style");
+      style.id = THEME_STYLE_ID;
+      style.textContent = THEME_CSS;
+      root.appendChild(style);
+    }
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 function GoogleCta() {
   return (
     <div className="mx-auto max-w-xl rounded-2xl border border-line bg-paper p-10 text-center">
@@ -73,6 +103,14 @@ export default function Reviews() {
       if (rendered) {
         setStatus("loaded");
         clearInterval(interval);
+        // Theme the shadow DOM now, and keep re-applying if Featurable
+        // re-renders its content (e.g. slider transitions).
+        themeShadow(el);
+        const wrapper = el.querySelector(".shadow-wrapper");
+        if (wrapper && wrapper.shadowRoot) {
+          const obs = new MutationObserver(() => themeShadow(el));
+          obs.observe(wrapper.shadowRoot, { childList: true, subtree: true });
+        }
       } else if (tries >= 16) {
         // ~8s with no render → treat as unavailable, show the CTA.
         setStatus("failed");
