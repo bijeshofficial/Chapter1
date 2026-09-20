@@ -4,11 +4,10 @@ import { address, mapsPlaceUrl, mapsReviewsUrl } from "@/data/site";
 
 const mapsQuery = encodeURIComponent(address);
 
-// TODO: update these once opening hours are confirmed.
 const hours = [
-  { day: "Monday – Friday", time: "8:00 – 20:00" },
-  { day: "Saturday", time: "9:00 – 21:00" },
-  { day: "Sunday", time: "9:00 – 18:00" },
+  { day: "Monday – Friday", time: "9:30 – 22:00" },
+  { day: "Saturday", time: "17:00 – 22:00" },
+  { day: "Sunday", time: "Closed" },
 ];
 
 function Row({ icon, children }) {

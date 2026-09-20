@@ -22,9 +22,11 @@ Open [http://localhost:3000](http://localhost:3000).
 - `src/data/menu.js` — food & drinks menu (edit prices/items here)
 - `public/` — logo and printed menu images
 
-## Things to update
+## Editing content
 
-- **Opening hours** — placeholder values in `src/components/Visit.js` (search for `TODO`).
+- **Opening hours** — `hours` array in `src/components/Visit.js`.
+- **Menu** — `src/data/menu.js`.
+- **Links (socials, maps, reviews widget)** — `src/data/site.js`.
 
 ## Location
 
