@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand palette drawn from the Chapter 1 logo */
+  --cream: #f6f2e9;
+  --cream-deep: #efe9db;
+  --paper: #fbf9f3;
+  --olive: #5f6b4c;
+  --olive-deep: #4a543b;
+  --olive-soft: #7c876a;
+  --ink: #2f3327;
+  --muted: #6b6f61;
+  --line: #e3ddcd;
+  --gold: #b8965a;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-deep: var(--cream-deep);
+  --color-paper: var(--paper);
+  --color-olive: var(--olive);
+  --color-olive-deep: var(--olive-deep);
+  --color-olive-soft: var(--olive-soft);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-gold: var(--gold);
+  --font-serif: var(--font-cormorant);
+  --font-sans: var(--font-jost);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-jost), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.eyebrow {
+  font-family: var(--font-jost), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--olive-soft);
+}
+
+.divider-leaf {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--olive-soft);
+}
+.divider-leaf::before,
+.divider-leaf::after {
+  content: "";
+  height: 1px;
+  width: 2.5rem;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
